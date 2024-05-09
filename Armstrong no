@@ -1,0 +1,53 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    // Get the input number from the user
+    int n, original, digit, sum = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    // Save the number in another variable
+    original = n;
+
+    // Count the number of digits
+    int digits = 0;
+    while (original != 0)
+    {
+        original /= 10;
+        digits++;
+    }
+
+    // Reset the original number
+    original = n;
+
+    // Calculate the sum of the digits raised to the power of the number of digits
+    while (original != 0)
+    {
+        // Get the last digit of the number
+        digit = original % 10;
+
+        // Add the digit raised to the power of the number of digits to the sum
+        sum += pow(digit, digits);
+
+        // Remove the last digit of the number
+        original /= 10;
+    }
+
+    // Print the number
+    cout << "The number is: " << n << endl;
+
+    // Check if the sum is equal to the number
+    if (sum == n)
+    {
+        cout << "The number is an Armstrong number." << endl;
+    }
+    else
+    {
+        cout << "The number is not an Armstrong number." << endl;
+    }
+
+    return 0;
+}
