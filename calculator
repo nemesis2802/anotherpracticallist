@@ -1,0 +1,48 @@
+#include <iostream>
+
+class Calculator {
+public:
+    // Function to add two numbers
+    double add(double num1, double num2) {
+        return num1 + num2;
+    }
+
+    // Function to subtract two numbers
+    double subtract(double num1, double num2) {
+        return num1 - num2;
+    }
+
+    // Function to multiply two numbers
+    double multiply(double num1, double num2) {
+        return num1 * num2;
+    }
+
+    // Function to divide two numbers
+    double divide(double num1, double num2) {
+        if (num2 != 0) {
+            return num1 / num2;
+        } else {
+            std::cerr << "Error: Division by zero." << std::endl;
+            return 0;
+        }
+    }
+};
+
+int main() {
+    Calculator calc;
+    double a, b;
+
+    // User input for two numbers
+    std::cout << "Enter the first number: ";
+    std::cin >> a;
+    std::cout << "Enter the second number: ";
+    std::cin >> b;
+
+    // Performing arithmetic operations
+    std::cout << "Addition: " << calc.add(a, b) << std::endl;
+    std::cout << "Subtraction: " << calc.subtract(a, b) << std::endl;
+    std::cout << "Multiplication: " << calc.multiply(a, b) << std::endl;
+    std::cout << "Division: " << calc.divide(a, b) << std::endl;
+
+    return 0;
+}
