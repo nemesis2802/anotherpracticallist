@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+void UpperTriangle(std::vector<std::vector<int>>& A, int n) {
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < i; ++j) {
+            A[i][j] = 0; // Assign 0 to all elements below the main diagonal
+        }
+    }
+}
+
+void PrintMatrix(const std::vector<std::vector<int>>& A, int n) {
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << A[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+int main() {
+    // Example usage:
+    // Define a square matrix A of order n
+    std::vector<std::vector<int>> A = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    int n = 3; // Order of the square matrix
+
+    // Convert A to an upper triangular matrix
+    UpperTriangle(A, n);
+
+    // Print the upper triangular matrix
+    std::cout << "Upper Triangular Matrix:" << std::endl;
+    PrintMatrix(A, n);
+
+    return 0;
+}
