@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+class Student {
+private:
+    std::string name;
+    int rollNumber;
+    float marks;
+
+public:
+    // Constructor to initialize data members
+    Student() : name(""), rollNumber(0), marks(0.0f) {}
+
+    // Member function to input student details
+    void inputDetails() {
+        std::cout << "Enter student's name: ";
+        std::getline(std::cin, name);
+        std::cout << "Enter roll number: ";
+        std::cin >> rollNumber;
+        std::cout << "Enter marks: ";
+        std::cin >> marks;
+        std::cin.ignore(); // To consume the newline character after entering marks
+    }
+
+    // Member function to display student details
+    void displayDetails() const {
+        std::cout << "Name: " << name << ", Roll Number: " << rollNumber << ", Marks: " << marks << std::endl;
+    }
+
+    // Getter for marks
+    float getMarks() const {
+        return marks;
+    }
+
+    // Static function to calculate the average marks of a group of students
+    static float calculateAverage(const std::vector<Student>& students) {
+        float sum = 0.0f;
+        for (const auto& student : students) {
+            sum += student.getMarks();
+        }
+        return students.empty() ? 0.0f : (sum / students.size());
+    }
+};
+
+int main() {
+    int numberOfStudents;
+    std::cout << "Enter the number of students: ";
+    std::cin >> numberOfStudents;
+    std::cin.ignore(); // To consume the newline character after entering the number
+
+    std::vector<Student> students(numberOfStudents);
+
+    // Input details for each student
+    for (Student& student : students) {
+        student.inputDetails();
+    }
+
+    // Display details for each student
+    std::cout << "\nStudent Details:\n";
+    for (const Student& student : students) {
+        student.displayDetails();
+    }
+
+    // Calculate and display the average marks
+    float averageMarks = Student::calculateAverage(students);
+    std::cout << "\nAverage Marks of the group: " << averageMarks << std::endl;
+
+    return 0;
+}
