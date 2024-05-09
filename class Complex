@@ -1,0 +1,46 @@
+#include <iostream>
+
+class Complex {
+private:
+    // Data members hidden from outside the class
+    double real;
+    double imag;
+
+public:
+    // Default constructor
+    Complex() : real(0.0), imag(0.0) {}
+
+    // Parameterized constructor
+    Complex(double r, double i) : real(r), imag(i) {}
+
+    // Member function to add another complex number to it
+    Complex add(const Complex& other) const {
+        return Complex(real + other.real, imag + other.imag);
+    }
+
+    // Function to display the complex number
+    void display() const {
+        std::cout << real << " + " << imag << "i" << std::endl;
+    }
+};
+
+int main() {
+    // Creating two Complex objects using the default and parameterized constructors
+    Complex c1;
+    Complex c2(3.5, 2.5);
+
+    // Displaying the complex numbers
+    std::cout << "Complex number 1: ";
+    c1.display();
+    std::cout << "Complex number 2: ";
+    c2.display();
+
+    // Adding the two complex numbers
+    Complex c3 = c1.add(c2);
+
+    // Displaying the result of the addition
+    std::cout << "Sum of complex numbers: ";
+    c3.display();
+
+    return 0;
+}
