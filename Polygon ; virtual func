@@ -1,0 +1,48 @@
+#include <iostream>
+
+// Abstract class Polygon
+class Polygon {
+protected:
+    double area;
+
+public:
+    // Constructor
+    Polygon() : area(0) {}
+
+    // Pure virtual function to calculate the area
+    virtual void calculateArea() = 0;
+
+    // Function to display the area
+    void displayArea() const {
+        std::cout << "The area of the Polygon is: " << area << std::endl;
+    }
+};
+
+// Derived class Rectangle
+class Rectangle : public Polygon {
+private:
+    double width;
+    double height;
+
+public:
+    // Constructor
+    Rectangle(double w, double h) : width(w), height(h) {}
+
+    // Override the pure virtual function to calculate the area of the rectangle
+    void calculateArea() override {
+        area = width * height;
+    }
+};
+
+int main() {
+    // Create a Rectangle object
+    Rectangle rect(5.0, 3.0);
+
+    // Calculate the area of the rectangle
+    rect.calculateArea();
+
+    // Display the area of the rectangle
+    rect.displayArea();
+
+    return 0;
+}
