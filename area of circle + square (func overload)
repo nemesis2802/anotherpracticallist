@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+
+// Function to calculate the area of a square
+double area(double side) {
+    return side * side;
+}
+
+// Function to calculate the area of a circle
+double area(double radius, bool isCircle) {
+    if (isCircle) {
+        return M_PI * radius * radius;
+    }
+    return 0; // In case the second parameter is false
+}
+
+int main() {
+    double sideOfSquare, radiusOfCircle;
+
+    // Input side of the square
+    std::cout << "Enter the side of the square: ";
+    std::cin >> sideOfSquare;
+
+    // Input radius of the circle
+    std::cout << "Enter the radius of the circle: ";
+    std::cin >> radiusOfCircle;
+
+    // Calculate and display the area of the square
+    std::cout << "Area of the square: " << area(sideOfSquare) << std::endl;
+
+    // Calculate and display the area of the circle
+    std::cout << "Area of the circle: " << area(radiusOfCircle, true) << std::endl;
+
+    return 0;
+}
