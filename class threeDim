@@ -1,0 +1,30 @@
+#include <iostream>
+
+class ThreeDim {
+private:
+    int x, y, z;
+
+public:
+    // Default constructor to initialize data members to zero
+    ThreeDim() : x(0), y(0), z(0) {}
+
+    // Parameterized constructor to initialize data members to values passed
+    ThreeDim(int xValue, int yValue, int zValue) : x(xValue), y(yValue), z(zValue) {}
+
+    // Function out() to display the coordinates of the class
+    void out() const {
+        std::cout << "Coordinates: (" << x << ", " << y << ", " << z << ")" << std::endl;
+    }
+};
+
+int main() {
+    // Using the default constructor
+    ThreeDim point1;
+    point1.out(); // Displays: Coordinates: (0, 0, 0)
+
+    // Using the parameterized constructor
+    ThreeDim point2(5, 10, 15);
+    point2.out(); // Displays: Coordinates: (5, 10, 15)
+
+    return 0;
+}
