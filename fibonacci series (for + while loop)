@@ -1,0 +1,43 @@
+// Using the for loop
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, t1 = 0, t2 = 1, nextTerm; // Declare and initialize three integer variables
+    cout << "Enter the number of terms: "; // Prompt the user for input
+    cin >> n; // Read the input number
+    cout << "Fibonacci Series: "; // Display the message
+    for (int i = 1; i <= n; i++) // Run a for loop from i = 1 to i <= n, incrementing i by 1 in each iteration
+    {
+        cout << t1 << " "; // Print the current term
+        nextTerm = t1 + t2; // Calculate the next term by adding the previous two terms
+        t1 = t2; // Update t1 to the next term
+        t2 = nextTerm; // Update t2 to the next term
+    }
+    cout << endl; // Print a new line
+    return 0; // End the program
+}
+
+// Using the while loop
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, t1 = 0, t2 = 1, nextTerm; // Declare and initialize three integer variables
+    cout << "Enter the number of terms: "; // Prompt the user for input
+    cin >> n; // Read the input number
+    cout << "Fibonacci Series: "; // Display the message
+    int i = 1; // Declare and initialize an integer variable i with 1
+    while (i <= n) // Run a while loop until i is greater than n
+    {
+        cout << t1 << " "; // Print the current term
+        nextTerm = t1 + t2; // Calculate the next term by adding the previous two terms
+        t1 = t2; // Update t1 to the next term
+        t2 = nextTerm; // Update t2 to the next term
+        i++; // Increment i by 1
+    }
+    cout << endl; // Print a new line
+    return 0; // End the program
+}
